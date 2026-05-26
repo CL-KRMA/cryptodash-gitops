@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: cryptodash
-          image: ghcr.io/USERNAME/crypto-test:latest
-          # Remplace USERNAME par ton compte GHCR
+          image: ghcr.io/USERNAME/cryptodash-app:latest
+
           ports:
             - containerPort: 3000
           env:
