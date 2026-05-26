@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cryptodash
-          image: ghcr.io/USERNAME/cryptodash-app:latest
+          image: ghcr.io/cl-krma/cryptodash-app:e36a378b7d4c7a1d2d0e63e779920a8be959a006
 
           ports:
             - containerPort: 3000
