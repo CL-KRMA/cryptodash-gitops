@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cryptodash
+  namespace: crypto
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cryptodash
+  template:
+    metadata:
+      labels:
+        app: cryptodash
+    spec:
+      containers:
+        - name: cryptodash
+          image: ghcr.io/USERNAME/crypto-test:latest
+          # Remplace USERNAME par ton compte GHCR
+          ports:
+            - containerPort: 3000
+          env:
+            - name: SITE_TITLE
+              value: "Infra Prog Crypto"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cryptodash-service
+  namespace: crypto
+spec:
+  selector:
+    app: cryptodash
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP
